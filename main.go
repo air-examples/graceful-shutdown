@@ -17,7 +17,7 @@ func main() {
 		return res.String("Finished.")
 	})
 
-	shutdownChan := make(chan os.Signal)
+	shutdownChan := make(chan os.Signal, 1)
 	signal.Notify(shutdownChan, os.Interrupt, syscall.SIGTERM)
 
 	go func() {
