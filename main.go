@@ -10,8 +10,6 @@ import (
 )
 
 func main() {
-	air.LoggerEnabled = true
-
 	air.GET("/", func(req *air.Request, res *air.Response) error {
 		time.Sleep(5 * time.Second)
 		return res.String("Finished.")
@@ -22,7 +20,9 @@ func main() {
 
 	go func() {
 		if err := air.Serve(); err != nil {
-			air.ERROR(err)
+			air.ERROR("server error", map[string]interface{}{
+				"error": err.Error(),
+			})
 		}
 	}()
 
