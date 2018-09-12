@@ -6,7 +6,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/sheng/air"
+	"github.com/aofei/air"
 )
 
 func main() {
