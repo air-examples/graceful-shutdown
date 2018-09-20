@@ -12,7 +12,7 @@ import (
 func main() {
 	air.GET("/", func(req *air.Request, res *air.Response) error {
 		time.Sleep(5 * time.Second)
-		return res.String("Finished.")
+		return res.WriteString("Finished.")
 	})
 
 	shutdownChan := make(chan os.Signal, 1)
