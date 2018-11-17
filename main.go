@@ -10,7 +10,8 @@ import (
 )
 
 func main() {
-	air.GET("/", func(req *air.Request, res *air.Response) error {
+	a := air.Default
+	a.GET("/", func(req *air.Request, res *air.Response) error {
 		time.Sleep(5 * time.Second)
 		return res.WriteString("Finished.")
 	})
@@ -19,15 +20,15 @@ func main() {
 	signal.Notify(shutdownChan, os.Interrupt, syscall.SIGTERM)
 
 	go func() {
-		if err := air.Serve(); err != nil {
-			air.ERROR("server error", map[string]interface{}{
+		if err := a.Serve(); err != nil {
+			a.ERROR("server error", map[string]interface{}{
 				"error": err.Error(),
 			})
 		}
 	}()
 
 	<-shutdownChan
-	air.INFO("shutting down the server")
-	air.Shutdown(0)
-	air.INFO("server gracefully stopped")
+	a.INFO("shutting down the server")
+	a.Shutdown(0)
+	a.INFO("server gracefully stopped")
 }
