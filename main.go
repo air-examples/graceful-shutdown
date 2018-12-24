@@ -11,6 +11,8 @@ import (
 
 func main() {
 	a := air.Default
+	a.DebugMode = true
+
 	a.GET("/", func(req *air.Request, res *air.Response) error {
 		time.Sleep(5 * time.Second)
 		return res.WriteString("Finished.")
