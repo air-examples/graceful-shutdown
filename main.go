@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -23,14 +24,12 @@ func main() {
 
 	go func() {
 		if err := a.Serve(); err != nil {
-			a.ERROR("server error", map[string]interface{}{
-				"error": err.Error(),
-			})
+			log.Printf("server error: %v", err)
 		}
 	}()
 
 	<-shutdownChan
-	a.INFO("shutting down the server")
+	log.Println("shutting down the server")
 	a.Shutdown(0)
-	a.INFO("server gracefully stopped")
+	log.Println("server gracefully stopped")
 }
