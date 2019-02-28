@@ -4,22 +4,11 @@ Gracefully shuts down the server without interrupting any active connections.
 
 ## Installation
 
-Open your terminal and execute
+Check out the latest version of this example and enter it
 
 ```bash
-$ go get github.com/air-examples/graceful-shutdown
-```
-
-done.
-
-> The only requirement is the [Go](https://golang.org), at least v1.9.
-
-## Usage
-
-Enter the directory where this example is located
-
-```bash
-$ cd $GOPATH/src/github.com/air-examples/graceful-shutdown
+$ git clone https://github.com/air-examples/graceful-shutdown.git
+$ cd graceful-shutdown
 ```
 
 and run it
