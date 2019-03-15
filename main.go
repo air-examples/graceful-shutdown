@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 	"os/signal"
@@ -30,6 +31,6 @@ func main() {
 
 	<-shutdownChan
 	log.Println("shutting down the server")
-	a.Shutdown(0)
+	a.Shutdown(context.Background())
 	log.Println("server gracefully stopped")
 }
