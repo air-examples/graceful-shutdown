@@ -34,6 +34,6 @@ send pull requests
 
 ## License
 
-This project is licensed under the Unlicense.
+This project is licensed under the MIT License.
 
 License can be found [here](LICENSE).
